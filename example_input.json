@@ -1,0 +1,20 @@
+{
+  "label": "Example timing and remaining-credit inputs; replace with observed account dates for a live plan.",
+  "start_at": "2026-11-25T00:31:00Z",
+  "deadline_at": "2026-11-30T08:00:00Z",
+  "budget_minutes": 120,
+  "task_minutes": 90,
+  "export_minutes": 10,
+  "destroy_minutes": 5,
+  "card_attached": false,
+  "remaining_credit_usd": "1.00",
+  "credit_issued_at": "2026-11-24T00:31:00Z",
+  "credit_expires_at": null,
+  "illustrative_month_usage_usd": "7.00",
+  "resources": {
+    "cpu_hours": "2",
+    "memory_gb_hours": "4",
+    "hot_gb_hours": "10",
+    "cold_gb_hours": "840"
+  }
+}

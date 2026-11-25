@@ -1,0 +1,143 @@
+{
+  "schema_version": "trial-clock/1",
+  "generated_at": "2026-11-25T00:51:52Z",
+  "input": {
+    "label": "Actual Hacksgiving run starts 2026-11-25 00:31 UTC; $1 starter banner observed at activation. Credit issuance/expiry not verified.",
+    "start_at": "2026-11-25T00:31:00Z",
+    "deadline_at": "2026-11-30T08:00:00Z",
+    "budget_minutes": 120,
+    "task_minutes": 90,
+    "export_minutes": 10,
+    "destroy_minutes": 5,
+    "card_attached": false,
+    "remaining_credit_usd": "1.00",
+    "credit_issued_at": null,
+    "credit_expires_at": null,
+    "illustrative_month_usage_usd": "7.00",
+    "resources": {
+      "cpu_hours": "2",
+      "memory_gb_hours": "4",
+      "hot_gb_hours": "10",
+      "cold_gb_hours": "840"
+    }
+  },
+  "snapshot": {
+    "mode": "replay_fixture",
+    "label": "REPLAY: official policy passages reviewed November 24, 2026; no live connector call.",
+    "retrieved_at": "2026-11-24",
+    "sources": [
+      {
+        "url": "https://docs.fly.io/about/free-plan",
+        "title": "Fly.io Free Plan — reviewed replay"
+      },
+      {
+        "url": "https://fly.io/pricing/",
+        "title": "Fly.io Resource Pricing — reviewed replay"
+      }
+    ],
+    "policy": {
+      "no_card_credit_usd": "1.00",
+      "credit_duration_days": 7,
+      "card_monthly_credit_usd": "5.00",
+      "automatic_payg_at_usd": "5.00",
+      "whole_month_rebilled": true,
+      "rates": {
+        "cpu_hour": "0.0385",
+        "memory_gb_hour": "0.021875",
+        "hot_gb_hour": "0.000683",
+        "cold_gb_hour": "0.000027"
+      },
+      "citations": [
+        {
+          "field": "no_card_credit_usd, credit_duration_days",
+          "url": "https://docs.fly.io/about/free-plan",
+          "quote": "Without a credit card: you get $1 of credit when you create your account. It's a one-time credit, and it expires after 7 days."
+        },
+        {
+          "field": "card_monthly_credit_usd",
+          "url": "https://docs.fly.io/about/free-plan",
+          "quote": "With a credit card: you get $5 of usage every month."
+        },
+        {
+          "field": "automatic_payg_at_usd, whole_month_rebilled",
+          "url": "https://docs.fly.io/about/free-plan",
+          "quote": "When you use up the $5, your organization moves to Pay As You Go automatically, so nothing stops. The month's $5 is removed, and the whole month's usage is billed at standard rates from the first cent, not just the usage above $5."
+        },
+        {
+          "field": "rates.cpu_hour",
+          "url": "https://fly.io/pricing/",
+          "quote": "| CPU time | Cumulative CPU usage measured by cpu.stat | $0.0385 / CPU-hour |"
+        },
+        {
+          "field": "rates.memory_gb_hour",
+          "url": "https://fly.io/pricing/",
+          "quote": "| Memory time | Actual memory usage | $0.021875 / GB-hour |"
+        },
+        {
+          "field": "rates.hot_gb_hour",
+          "url": "https://fly.io/pricing/",
+          "quote": "| Hot | Bills while the Sprite is awake | $0.000683 / GB-hour | $0.50 |"
+        },
+        {
+          "field": "rates.cold_gb_hour",
+          "url": "https://fly.io/pricing/",
+          "quote": "| Cold | Bills for as long as you keep it | $0.000027 / GB-hour | $0.02 |"
+        }
+      ]
+    },
+    "gateway_requests_this_run": 0
+  },
+  "plan": {
+    "decision": "CHECK_CREDIT_EXPIRY",
+    "reasons": [
+      "The cost fits; starter-credit issuance/expiration is still missing."
+    ],
+    "resource_cost_usd": "0.19401",
+    "remaining_credit_usd": "1",
+    "headroom_usd": "0.80599",
+    "cost_rows": [
+      {
+        "resource": "cpu_hours",
+        "quantity": "2",
+        "rate_usd": "0.0385",
+        "cost_usd": "0.077"
+      },
+      {
+        "resource": "memory_gb_hours",
+        "quantity": "4",
+        "rate_usd": "0.021875",
+        "cost_usd": "0.0875"
+      },
+      {
+        "resource": "hot_gb_hours",
+        "quantity": "10",
+        "rate_usd": "0.000683",
+        "cost_usd": "0.00683"
+      },
+      {
+        "resource": "cold_gb_hours",
+        "quantity": "840",
+        "rate_usd": "0.000027",
+        "cost_usd": "0.02268"
+      }
+    ],
+    "cost_scope": "Sprite CPU, memory, hot storage and retained cold storage; network excluded. Exa uses the existing provider allowance.",
+    "credit_expires_at": null,
+    "expiry_basis": "unknown: supply observed credit_expires_at or credit_issued_at",
+    "limiting_bound": "two_hour_or_input_budget",
+    "planned_work_finishes_at": "2026-11-25T02:01:00Z",
+    "finish_work_by": "2026-11-25T02:16:00Z",
+    "export_by": "2026-11-25T02:26:00Z",
+    "destroy_by": "2026-11-25T02:31:00Z",
+    "schedule_action": "Finish, export, then destroy manually by the listed times.",
+    "no_card_credit_usd": "1.00",
+    "credit_duration_days": 7,
+    "card_path_comparison": {
+      "illustrative_month_usage_usd": "7",
+      "automatic_payg": true,
+      "standard_rate_usage_billed_usd": "7",
+      "applies_to_this_run": false
+    }
+  },
+  "changes": null
+}

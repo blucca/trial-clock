@@ -1,0 +1,84 @@
+{
+  "input": {
+    "label": "Actual Hacksgiving run starts 2026-11-25 00:31 UTC; $1 starter banner observed at activation. Credit issuance/expiry not verified.",
+    "start_at": "2026-11-25T00:31:00Z",
+    "deadline_at": "2026-11-30T08:00:00Z",
+    "budget_minutes": 120,
+    "task_minutes": 90,
+    "export_minutes": 10,
+    "destroy_minutes": 5,
+    "card_attached": false,
+    "remaining_credit_usd": "1.00",
+    "credit_issued_at": null,
+    "credit_expires_at": null,
+    "illustrative_month_usage_usd": "7.00",
+    "resources": {
+      "cpu_hours": "2",
+      "memory_gb_hours": "4",
+      "hot_gb_hours": "10",
+      "cold_gb_hours": "840"
+    }
+  },
+  "plan": {
+    "decision": "CHECK_CREDIT_EXPIRY",
+    "reasons": [
+      "The cost fits; starter-credit issuance/expiration is still missing."
+    ],
+    "resource_cost_usd": "0.19401",
+    "remaining_credit_usd": "1",
+    "headroom_usd": "0.80599",
+    "cost_rows": [
+      {
+        "resource": "cpu_hours",
+        "quantity": "2",
+        "rate_usd": "0.0385",
+        "cost_usd": "0.077"
+      },
+      {
+        "resource": "memory_gb_hours",
+        "quantity": "4",
+        "rate_usd": "0.021875",
+        "cost_usd": "0.0875"
+      },
+      {
+        "resource": "hot_gb_hours",
+        "quantity": "10",
+        "rate_usd": "0.000683",
+        "cost_usd": "0.00683"
+      },
+      {
+        "resource": "cold_gb_hours",
+        "quantity": "840",
+        "rate_usd": "0.000027",
+        "cost_usd": "0.02268"
+      }
+    ],
+    "cost_scope": "Sprite CPU, memory, hot storage and retained cold storage; network excluded. Exa uses the existing provider allowance.",
+    "credit_expires_at": null,
+    "expiry_basis": "unknown: supply observed credit_expires_at or credit_issued_at",
+    "limiting_bound": "two_hour_or_input_budget",
+    "planned_work_finishes_at": "2026-11-25T02:01:00Z",
+    "finish_work_by": "2026-11-25T02:16:00Z",
+    "export_by": "2026-11-25T02:26:00Z",
+    "destroy_by": "2026-11-25T02:31:00Z",
+    "schedule_action": "Finish, export, then destroy manually by the listed times.",
+    "no_card_credit_usd": "1.00",
+    "credit_duration_days": 7,
+    "card_path_comparison": {
+      "illustrative_month_usage_usd": "7",
+      "automatic_payg": true,
+      "standard_rate_usage_billed_usd": "7",
+      "applies_to_this_run": false
+    }
+  },
+  "changes": {
+    "previous_generated_at": "2026-11-25T00:48:02Z",
+    "policy_fields": [],
+    "source_snapshots": [],
+    "source_comparison": "Compared saved source text.",
+    "cost_before_usd": "0.19401",
+    "cost_after_usd": "0.19401",
+    "decision_before": "CHECK_CREDIT_EXPIRY",
+    "decision_after": "CHECK_CREDIT_EXPIRY"
+  }
+}

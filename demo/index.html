@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trial Clock — working demo</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0c1421; --panel:#152235; --line:#29425e; --muted:#a6b7ca; --green:#99f6c7; --amber:#ffde9b; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:#e7edf4; font:16px/1.55 system-ui,sans-serif; }
+    main { max-width:1120px; margin:auto; padding:32px 24px 40px; }
+    a { color:#9ac6ff; text-underline-offset:3px; }
+    h1 { font-size:clamp(38px,6vw,60px); line-height:1.1; margin:14px 0 10px; letter-spacing:-2px; }
+    h2 { font-size:23px; margin:12px 0; }
+    p { margin:10px 0; }
+    .eyebrow { color:var(--amber); font-size:12px; font-weight:700; letter-spacing:2px; }
+    .intro { font-size:22px; color:#cbd7e7; margin-bottom:24px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .panel { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; }
+    .label { display:inline-block; border:1px solid #526981; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:.5px; }
+    .live { color:var(--green); }
+    .replay { color:var(--amber); }
+    .money { font-size:42px; line-height:1.2; font-weight:750; margin:12px 0 6px; font-variant-numeric:tabular-nums; }
+    .muted { color:var(--muted); }
+    .decision { font:700 14px/1.4 ui-monospace,monospace; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:0; list-style:none; margin:24px 0; }
+    .steps li { border-top:1px solid var(--line); padding-top:16px; }
+    .steps strong { display:block; font-size:19px; }
+    .step { color:var(--amber); margin-right:8px; font-variant-numeric:tabular-nums; }
+    .ending { border:1px solid var(--line); border-radius:12px; padding:16px 20px; display:flex; gap:26px; flex-wrap:wrap; align-items:center; }
+    .ending strong { color:var(--green); }
+    footer { margin-top:20px; font-size:14px; }
+    code { color:var(--amber); }
+    @media (max-width:700px) { .grid,.steps { grid-template-columns:1fr; } main { padding:24px 18px; } .money { font-size:36px; } .ending { gap:12px; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">HACKSGIVING 2026 · WORKING DEMO</div>
+  <h1>Trial Clock</h1>
+  <p class="intro">A cloud build with an ending.</p>
+
+  <div class="grid">
+    <section class="panel">
+      <span class="label live">ACTUAL SPRITE EXECUTION</span>
+      <h2>Saved live plan + manual refresh</h2>
+      <div class="money">$0.19401</div>
+      <div class="decision live">CHECK_CREDIT_EXPIRY</div>
+      <p>The resource envelope fits the supplied $1 starter credit. Account credit issuance / expiry remains unknown.</p>
+      <p class="muted">Four successful Exa requests through a Sprites Custom API: two <code>/contents</code>, two <code>/answer</code>. The live refresh returned unchanged source snapshots and rates.</p>
+      <p><a href="live/report.html">Open actual saved report →</a></p>
+      <p class="muted"><a href="live/evidence.json">Source text + request evidence</a> · <a href="live/previous.json">First saved live plan</a></p>
+    </section>
+
+    <section class="panel">
+      <span class="label replay">SIMULATED PRICE-CHANGE REPLAY</span>
+      <h2>One changed rate, same envelope</h2>
+      <div class="money">$0.19401 → $1.85133</div>
+      <div class="decision replay">DO_NOT_START</div>
+      <p>A controlled fixture changes only cold storage: $0.000027 → $0.002 per GB-hour. The recalculated envelope exceeds $1.</p>
+      <p class="muted">Run through the existing CLI with the same planning inputs. Zero provider requests; the fixture is labelled in its saved report and evidence.</p>
+      <p><a href="replay/report.html">Open simulated replay report →</a></p>
+      <p class="muted"><a href="replay/plan.json">Exact changed field + cost math</a> · <a href="replay/previous.json">Replay baseline</a></p>
+    </section>
+  </div>
+
+  <ol class="steps" aria-label="Three-step demo">
+    <li><strong><span class="step">01</span>Plan</strong><p>Retrieve official policy and pricing through Exa; compute resource costs and finish / export / destroy deadlines.</p></li>
+    <li><strong><span class="step">02</span>Reopen</strong><p>Read the saved state on the Sprite with zero requests. <a href="live/state.json">Inspect the exported state.</a></p></li>
+    <li><strong><span class="step">03</span>Refresh</strong><p>Compare saved source snapshots and policy fields. Show the actual unchanged refresh, then the labelled controlled price-change replay.</p></li>
+  </ol>
+
+  <div class="ending">
+    <span><strong>Actual run ending</strong> · November 25 UTC</span>
+    <span>Finish <strong>02:16</strong></span>
+    <span>Export <strong>02:26</strong></span>
+    <span>Destroy manually <strong>02:31</strong></span>
+  </div>
+  <footer class="muted">
+    <p>Saved static outputs. Live retrieval used Exa's default contents-cache policy. Report links open local artifacts.</p>
+    <p><a href="live/plan.json">Live plan JSON</a> · <a href="live/live_calls.json">Four-call counter</a> · <a href="replay/evidence.json">Replay fixture evidence</a> · <a href="../trial_clock.py">Python source</a></p>
+  </footer>
+</main>
+</body>
+</html>

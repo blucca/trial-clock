@@ -1,0 +1,66 @@
+{
+  "mode": "replay_fixture",
+  "label": "SIMULATED REPLAY: cold-storage rate change for demonstration; not a Fly pricing update.",
+  "retrieved_at": "simulated revision of the November 24 replay",
+  "sources": [
+    {
+      "url": "https://docs.fly.io/about/free-plan",
+      "title": "Fly.io Free Plan — reviewed replay"
+    },
+    {
+      "url": "https://fly.io/pricing/",
+      "title": "Fly.io Resource Pricing — reviewed replay"
+    }
+  ],
+  "policy": {
+    "no_card_credit_usd": "1.00",
+    "credit_duration_days": 7,
+    "card_monthly_credit_usd": "5.00",
+    "automatic_payg_at_usd": "5.00",
+    "whole_month_rebilled": true,
+    "rates": {
+      "cpu_hour": "0.0385",
+      "memory_gb_hour": "0.021875",
+      "hot_gb_hour": "0.000683",
+      "cold_gb_hour": "0.002"
+    },
+    "citations": [
+      {
+        "field": "no_card_credit_usd, credit_duration_days",
+        "url": "https://docs.fly.io/about/free-plan",
+        "quote": "Without a credit card: you get $1 of credit when you create your account. It's a one-time credit, and it expires after 7 days."
+      },
+      {
+        "field": "card_monthly_credit_usd",
+        "url": "https://docs.fly.io/about/free-plan",
+        "quote": "With a credit card: you get $5 of usage every month."
+      },
+      {
+        "field": "automatic_payg_at_usd, whole_month_rebilled",
+        "url": "https://docs.fly.io/about/free-plan",
+        "quote": "When you use up the $5, your organization moves to Pay As You Go automatically, so nothing stops. The month's $5 is removed, and the whole month's usage is billed at standard rates from the first cent, not just the usage above $5."
+      },
+      {
+        "field": "rates.cpu_hour",
+        "url": "https://fly.io/pricing/",
+        "quote": "| CPU time | Cumulative CPU usage measured by cpu.stat | $0.0385 / CPU-hour |"
+      },
+      {
+        "field": "rates.memory_gb_hour",
+        "url": "https://fly.io/pricing/",
+        "quote": "| Memory time | Actual memory usage | $0.021875 / GB-hour |"
+      },
+      {
+        "field": "rates.hot_gb_hour",
+        "url": "https://fly.io/pricing/",
+        "quote": "| Hot | Bills while the Sprite is awake | $0.000683 / GB-hour | $0.50 |"
+      },
+      {
+        "field": "rates.cold_gb_hour",
+        "url": "fixture://trial-clock/simulated-price-change",
+        "quote": "SIMULATED ONLY: cold storage costs $0.002 per GB-hour in this replay."
+      }
+    ]
+  },
+  "gateway_requests_this_run": 0
+}
