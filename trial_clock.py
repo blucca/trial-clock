@@ -359,7 +359,7 @@ table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,t
         .replace("INPUT_LABEL", e(run["input"].get("label", "Supplied planning inputs"))) \
         .replace("RETRIEVED", e(snapshot["retrieved_at"])).replace("GENERATED", e(run["generated_at"])) \
         .replace("REQUESTS", e(snapshot["gateway_requests_this_run"])).replace("$COST", "$" + e(plan["resource_cost_usd"])) \
-        .replace("$CREDIT", "$" + e(plan["remaining_credit_usd"])).replace("COLOR", color).replace("DECISION_VALUE", e(plan["decision"])) \
+        .replace("$CREDIT", "$" + e(plan["remaining_credit_usd"])).replace("COLOR", color) \
         .replace("COST_SCOPE", e(plan["cost_scope"])).replace("REASONS", reasons).replace("FINISH", e(plan["finish_work_by"])) \
         .replace("EXPORT", e(plan["export_by"])).replace("DESTROY", e(plan["destroy_by"])) \
         .replace("EXPIRY_BASIS", e(plan["expiry_basis"])).replace("EXPIRY", e(plan["credit_expires_at"] or "not supplied")) \
@@ -368,7 +368,8 @@ table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,t
         .replace("DAYS", e(plan["credit_duration_days"])).replace("$MONTHLY", "$" + e(snapshot["policy"]["card_monthly_credit_usd"])) \
         .replace("$THRESHOLD", "$" + e(snapshot["policy"]["automatic_payg_at_usd"])) \
         .replace("REBILL", e(snapshot["policy"]["whole_month_rebilled"])).replace("$MONTH_USAGE", "$" + e(comparison["illustrative_month_usage_usd"])) \
-        .replace("$BILLED", "$" + e(comparison["standard_rate_usage_billed_usd"])).replace("CITATIONS", citations)
+        .replace("$BILLED", "$" + e(comparison["standard_rate_usage_billed_usd"])).replace("CITATIONS", citations) \
+        .replace("DECISION_VALUE", e(plan["decision"]))
 
 
 def save_run(directory, run, previous=None):
